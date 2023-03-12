@@ -1,0 +1,364 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+*{
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+*, *:before, *:after{
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+:focus, :active{outline: none;}
+a:focus, a:active{outline: none;}
+
+nav,footer,header,aside{display: block;}
+
+html, body{
+	height: 100%;
+	width: 100%;
+	font-style: 100%;
+	line-height: 1;
+	font-style: 14px;
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+	background: #343D4B;
+}
+
+input, button, textarea{font-family: Montserrat;}
+
+input::-ms-clear{display:none;}
+button{cursor: pointer;}
+button::-moz-focus-inner{padding: 0;border: 0;}
+a, a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style-type: none;}
+img{vertical-align: top;}
+
+h1,h2, h3, h4, h5, h6{font-style: Montserrat; font-weight: 400;}
+
+
+
+.wrapper{
+	
+	height: 100vh;
+	display: flex;
+	justify-content:center;
+	align-items: center;
+	
+}
+
+
+.weather__container{
+	
+	display: flex;
+	justify-content:space-between;
+	align-items: center;
+	
+	max-width: 944px;
+	width: 100%;
+	height: 623px;
+	background: #222831;
+	border-radius: 25px;
+}
+
+.weather__left{
+	position: relative;
+	padding-top: 48px;
+	padding-left:32px;
+	transform: translateX(-55px);
+	max-width: 480px;
+	width: 100%;
+	height: 666px;
+	background:url('https://i.pinimg.com/originals/27/7f/09/277f0932afd883e2d78adeb55c94faae.gif') 50% 50%/auto 100% no-repeat;
+	border-radius: 30px;	
+}
+
+.weather__left__background{
+	position: absolute;
+	max-width: 480px;
+	width: 100%;
+	height: 666px;
+	border-radius: 30px;
+	top:0;
+	left: 0;
+	opacity: 0.2;
+	object-fit:cover;
+	z-index: -2;
+}
+.span_day{
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 37px;
+	line-height: 45px;
+	color: #FFFFFF;
+	margin-bottom: 16px;	
+}
+
+.weather__right{
+	margin-right: 50px;
+	max-width: 415px;
+	width: 100%;
+	height:506px;
+	position: relative;
+	z-index:0;
+}
+._disable{
+	visibility:collapse;
+	
+	
+}
+
+.main{
+	z-index:-1
+}
+
+.popup{
+	display: flex;
+	padding: 25px;
+	position: absolute;
+	width: 524px;
+	
+	height: 623px;
+	left:-56px;
+	top:-59px;
+	background: linear-gradient(144.94deg, #88EBEF -0.71%, #535BE6 104.78%);
+	border-radius: 0px 25px 25px 0px;
+	opacity: 1;
+	justify-content: center;
+	
+}
+
+.loading{
+	display: none;
+	
+}
+
+
+.popup__close{
+	position: absolute;
+	right:25px;
+	cursor:pointer;
+	transition: all 0.3s;
+}
+
+.popup__close:hover{
+	transform: scale(1.2);
+	
+}
+
+.popup__search{
+	position: absolute;
+	align-self: center;
+	display: flex;
+	gap: 13px;
+	align-items: center;
+	
+}
+
+
+
+.popup input{
+	
+	background: none;
+	width: 80%;
+	border-bottom: 1px solid #FFFFFF;
+	padding: 6px;
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 22px;
+	line-height: 27px;
+	color: #FFFFFF;
+}
+
+.popup__button_search{
+	cursor: pointer;
+	display: flex;
+	width: 35px;
+	height: 35px;
+	border-radius:100%;
+	background: #535BE6;
+	align-items: center;
+	justify-content: center;
+	transition: all 0.3s;
+	
+}
+
+
+.popup__button_search:hover{
+	background:#3a26e8;
+}
+
+.popup__location{
+	width: 27px;
+}
+
+span{
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 28px;
+	line-height: 34px;
+	color: #FFFFFF;
+}
+
+
+
+.span_big{
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 28px;
+	line-height: 34px;
+	color: #FFFFFF;
+	
+}
+
+.location{
+	margin-top: 16px;
+	display: flex;
+	align-items:center;
+}
+
+.main_weather_icon{
+	margin-top: 200px;
+	height:95px;
+}
+
+.main_tempa{
+font-family: 'Montserrat';
+font-style: normal;
+font-weight: 700;
+font-size: 50px;
+line-height: 61px;
+/* identical to box height */
+
+
+color: #FFFFFF;
+}
+
+.main_weather{
+	font-family: 'Montserrat';
+font-style: normal;
+font-weight: 700;
+font-size: 30px;
+line-height: 37px;
+
+color: #FFFFFF;
+}
+
+.weather__item{
+	display: flex;
+	justify-content:space-between;
+	
+}
+
+.weather__item:not(:last-child){
+	margin-bottom: 16px;
+}
+
+.weather__now{
+	margin-top: 80px;
+	max-width: 415px;
+	width: 100%;
+	height: 100%;
+	background: rgba(39, 46, 55, 0.99);
+	border-radius: 12px;	
+	display: flex;
+	justify-content:space-between;
+
+}
+
+.weather__now-item{
+	padding: 15px 20px 20px 20px;
+	background: #272E37;
+	box-shadow: 1px 2px 4px #222831;
+	border-radius: 10px;
+	
+}
+
+
+
+.weather__now-item__active{
+	background: #FFFFFF;
+	box-shadow: 1px 2px 4px #222831;
+	border-radius: 10px;
+
+}
+
+.weather__img__active{
+	height:55px;
+}
+.weather__img{
+	height:55px;
+}
+
+
+.weather__day{
+	margin: 15px auto;
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 24px;
+	text-align: center;
+	color: #ffffff;
+	
+}
+.weather__day__active{
+	filter: invert(1);
+}
+
+.weather__tempa{
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 20px;	
+	line-height: 24px;
+	text-align: center;
+	color: #ffffff;
+
+}
+
+.weather__tempa__active{
+	filter: invert(1);
+}
+
+
+.weather_location{
+	display: flex;
+	justify-content: center;
+	align-items:center;
+	margin-top: 70px;
+	max-width: 415px;
+	width: 100%;
+	height: 53px;
+	background: linear-gradient(90.8deg, rgba(144, 217, 224, 0.9) 0.2%, rgba(84, 96, 230, 0.9) 100%);
+	border-radius: 10px;
+}
+
+.weathe__text{
+	margin-left: 8px;
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 20px;
+	line-height: 24px;
+	text-align: right;
+	color: #FFFFFF;
+}
+
+.weathe__text_main{
+	margin-left: 8px;
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 20px;
+	line-height: 24px;
+	text-align: right;
+	color: #FFFFFF;
+}

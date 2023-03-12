@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Weather</title>
+</head>
+<body>
+    <div  class="wrapper">
+        <div class="weather__container">
+            <div class="weather__left">
+                <div class="loading">
+                    <img class="weather__left__background" src="" alt="">
+                <div class="span_day">Tuesday</div>
+                <div class="span_big left_data">20 Jun 2022</div>
+                <div class="location">
+                    <img  src="./img/Location.svg" alt="">
+                    <div class="weathe__text_main">Biarritz, FR</div>
+                </div>
+                <img class="main_weather_icon" src="./img/clear sky.png" alt="">
+                <div class="main_tempa tempa">29 °C</div>
+                <div class="main_weather">Sunny</div>
+                </div>
+            </div>
+            <div class="weather__right">
+                <div class="main ">
+                    <div class="weather_items">
+                        <div class="weather__item">
+                            <span class="span_big">PRESSURE</span>
+                            <span class="span_pressure" >0%</span>
+                        </div>
+                        <div class="weather__item">
+                            <span class="span_big">HUMIDITY</span>
+                            <span class="span_humidity">42%</span>
+                        </div>
+                        <div class="weather__item">
+                            <span class="span_big">WIND</span>
+                            <span class="span_wind">3 km/h</span>
+                        </div>
+                    </div>
+                    <div class="weather__now">
+                        <div class="weather__now-item weather__now-item__active">
+                            <img class="weather__img" src="./img/clear sky.png" alt="">
+                            <div class="weather__day weather__day__active">Tue</div>
+                            <div class="weather__tempa weather__tempa__active">30 °C</div>
+                        </div>
+                        <div class="weather__now-item ">
+                            <img class="weather__img" src="./img/clear sky.png" alt="">
+                            <div class="weather__day">Tue</div>
+                            <div class="weather__tempa">30 °C</div>
+                        </div>
+                        <div class="weather__now-item ">
+                            <img class="weather__img" src="./img/clear sky.png" alt="">
+                            <div class="weather__day">Tue</div>
+                            <div class="weather__tempa">30 °C</div>
+                        </div>
+                        <div class="weather__now-item ">
+                            <img class="weather__img" src="./img/clear sky.png" alt="">
+                            <div class="weather__day">Tue</div>
+                            <div class="weather__tempa">30 °C</div>
+                        </div>
+                    </div>
+                    <a href="#" class="weather_location">
+                        <img  src="./img/Location.svg" alt="">
+                        <div class="weathe__text">Change Location</div>
+                    </a>
+                </div>
+                <div class="popup ">
+                    <img class="popup__close " src="/img/Close.svg" alt="close">
+                    <form class="popup__search">
+                        <input type="text" placeholder="Введите город" required >
+                        <button type="submit"  class="popup__button_search">
+                            <img class="popup__location" src="/img/Location.svg" alt="loc">
+                        </button>
+                    </form>
+                    
+                </div>
+            </div>
+           
+        </div>
+    </div>
+</body>
+<script src="./js/script.js"></script>
+</html>

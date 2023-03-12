@@ -13,6 +13,7 @@ const icon=new Map([
   ["light snow",'./img/snow.png'],
   ["light intensity shower rain",'./img/rain.png'],
   ["light rain",'./img/rain.png'],
+  ["moderate rain",'./img/rain.png']
 ])
 
 ///Город

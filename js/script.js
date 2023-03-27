@@ -18,14 +18,12 @@ const icon=new Map([
 
 ///Город
 let city='Зерноград'
-
 const left= document.querySelector('.weather__left')
 const loading_= document.querySelector('.loading')
 
 async function find_Weather(){
-
-  loading_.style.display='none',
-  left.style.background="url('https://i.pinimg.com/originals/27/7f/09/277f0932afd883e2d78adeb55c94faae.gif') 50% 50%/auto 100% no-repeat"
+  loading_.style.opacity=0;
+  left.style.background="linear-gradient(152.19deg, rgba(136, 235, 239, 0.9) -0.04%, rgba(83, 91, 230, 0.9) 100%),url('/img/Rectangle 2.png')"
 try{
    /* Информация о погоде 8443b681f5de221551ce96eac691e7b7 */
 await fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=8443b681f5de221551ce96eac691e7b7`)
@@ -53,11 +51,8 @@ await fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=844
     document.querySelector('.main_weather_icon').src=icon.get(all_weather[0].weather[0].description)
     all_icon.forEach((el,i)=>el.src=icon.get(all_weather[i].weather[0].description))
     find_image()
-    close_location()
-   
-  
-},
-    );
+  },
+);
 }catch(err){
   console.log(err)
   alert('Город не найден')
@@ -67,7 +62,8 @@ await fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=844
 }
 }
 
-const loading='https://i.pinimg.com/originals/27/7f/09/277f0932afd883e2d78adeb55c94faae.gif'
+
+const loading_gif='https://i.pinimg.com/originals/27/7f/09/277f0932afd883e2d78adeb55c94faae.gif'
 
 const find_image=async()=>{
    /* Генерация картинки e8bNQOgxDb7Fta61FuZAawExZgpYQO72AoO5YzyqQOA*/
@@ -75,11 +71,11 @@ await fetch(`https://api.unsplash.com/search/photos?query=${city}&client_id=e8bN
 .then(function (resp){return resp.json()})
 .then((data)=>{
   let image=data.results[getRandomInt(data.results.length)]
-  document.querySelector('.weather__left__background').src=image?image.urls.regular:'https://nypost.com/wp-content/uploads/sites/2/2022/05/office-07.jpg?quality=75&amp;strip=all&amp;w=1024'
- 
+  left.style.background=image?`linear-gradient(152.19deg, rgba(136, 235, 239, 0.9) -0.04%, rgba(83, 91, 230, 0.9) 100%),url(${image.urls.regular}) 50%/cover`:`linear-gradient(152.19deg, rgba(136, 235, 239, 0.9) -0.04%, rgba(83, 91, 230, 0.9) 100%),url('https://nypost.com/wp-content/uploads/sites/2/2022/05/office-07.jpg?quality=75&amp;strip=all&amp;w=1024') 50%/cover`
+  loading_.style.opacity=0;
+  open_close_location(false)
 });
-left.style.background="linear-gradient(152.19deg, rgba(136, 235, 239, 0.9) -0.04%, rgba(83, 91, 230, 0.9) 100%)",
-loading_.style.display='block'
+
 }
 
 const data=()=>{
@@ -110,6 +106,7 @@ map_day.forEach((el,ind)=>{
   }
   
 })
+
 const all_tempa=document.querySelectorAll(".weather__day");
 
 all_tempa.forEach((el,i)=>{
@@ -128,8 +125,7 @@ const btn_close=document.querySelector('.popup__close')
 const btn_open=document.querySelector('.weather_location')
 const popup=document.querySelector('.popup')
 const input_popup=document.querySelector('.popup__search input')
-let popup_width=0;
-let popup_opacity=0;
+
 
 
 
@@ -152,48 +148,30 @@ btn_search_location.addEventListener('click',(e)=>{
 /* Нажатие кнопки закрыть */
 btn_close.addEventListener('click',(e)=>{
   e.preventDefault
-  close_location()
+  open_close_location(false)
   
 })
 /* Нажатие кнопки сменить локацию */
 btn_open.addEventListener('click',(e)=>{
   e.preventDefault
-  open_location()
+  open_close_location(true)
   
 })
 
-function open_location(){
-  popup.style.display='flex';
-  const id=setInterval(()=>{
-    if(popup_width<524){
-      popup_opacity+=0.1
-    popup.style.opacity=popup_opacity;
-    popup_width+=10
-    popup.style.width=`${popup_width}px`;
-    }else{
-      clearInterval(id)
-    }
-    
-  },1)
- 
+function open_close_location(bool){
+  if (bool) {
+    popup.classList.add('open')
+    popup.classList.remove('close')
+    input_popup.focus()
+  }else{
+    popup.classList.add('close')
+    popup.classList.remove('open')
+  }
+  input_popup.value=''
 }
 
-function close_location(){
-  
-  const id=setInterval(()=>{
-    if(popup_width>0){
-      popup_opacity-=0.1
-    popup.style.opacity=popup_opacity;
-    popup_width-=10
-    popup.style.width=`${popup_width}px`;
-    }else{
-      clearInterval(id)
-      popup.style.display='none';
-      input_popup.value=""
-    }
-    
-  },1)
-}
+
+open_close_location(true)
 
 
 

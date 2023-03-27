@@ -389,7 +389,21 @@ span{
 }
 
 
+
+
 @media(max-width:1400px){
+
+	.wrapper{
+		padding: 0;
+	}
+
+	.weather__container{
+		max-width:100%;
+		
+		max-height: 100%;
+		height: 95%;
+		}
+
 	.weather__now{
 		flex-wrap: wrap;
 		min-width: 190px;
@@ -409,11 +423,65 @@ span{
 
 }
 
+@media(max-width:765px) and (orientation:landscape){
+
+	.weather__container{
+		max-width:100%;
+		
+		max-height: 100%;
+		height: 90%;
+		}
+
+
+	.weather__now{
+		margin-top: 5%;
+	}
+
+	.weather__right{
+		padding:0;
+	}
+
+	.weather__left{
+		padding:24px 24px 20px 16px;
+	}
+
+	.main_weather_icon{
+		margin-top: 8%;
+	}
+
+	.main_tempa,.main_weather{
+		font-size:24px;
+		line-height: 26px;
+	}
+	
+	.weather__now-item{
+		gap:0;
+		font-size: 12px;
+		line-height: 15px;
+		align-items:center;
+		padding: 3%;
+	}
+
+	.weather__img{
+		max-width: 30px;
+	}
+
+	.weather_items{
+		gap: 1px;
+	}
+
+
+
+}
+
+
 
 @media(orientation:portrait) and (max-width:960px){
 	.wrapper{
 		padding:0;
 	}
+
+	
 	
 	.weather__container{
 		max-width:100%;
@@ -437,6 +505,11 @@ span{
 		
 	}
 
+	.weather__day{
+		font-size: 10px;
+	}
+
+	
 	
 
 	.weather__left{
